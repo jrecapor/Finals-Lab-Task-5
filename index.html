@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Final Task 5 - SQL Views, Procedures, and Functions</title>
+    <style>
+        /* General body and background setup */
+        body {
+            background-color: #121212;
+            background-image: url('https://i.gifer.com/5ARz.gif');  /* Replace with a valid image URL */
+            background-size: cover;
+            color: #e0e0e0;
+            font-family: 'Cooper Black', Britannic Bold;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-position: center;
+            background-attachment: fixed;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            text-align: center;  /* Centers the text for the entire body */
+        }
+
+        /* Header style */
+        header {
+            background-color: rgba(30, 30, 30, 0.8);
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #00bcd4; /* Cyan color */
+            text-shadow: 0 0 20px rgba(0, 188, 212, 0.7);
+            margin: 0;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Navigation styling */
+        nav {
+            background-color: rgba(30, 30, 30, 0.9);
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        nav a {
+            color: #00bcd4;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            margin: 0 15px;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: rgba(0, 188, 212, 0.5);
+            color: white;
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.7);
+        }
+
+        /* Section styling */
+        .section {
+            padding: 50px;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Ensures the section content is centered */
+            justify-content: center;
+        }
+
+        .box {
+            background-color: rgba(30, 30, 30, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 188, 212, 0.5);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease-in-out;
+            text-align: left;  /* Keeps the text inside the box left-aligned */
+            max-width: 800px;  /* Ensures the box doesn't stretch too wide */
+            width: 100%;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: rgba(30, 30, 30, 0.9);
+            color: #00bcd4;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        footer p {
+            font-size: 1.1em;
+            text-shadow: 0 0 8px rgba(0, 188, 212, 0.5);
+        }
+
+        footer a {
+            color: #00bcd4;
+            text-decoration: none;
+        }
+
+        /* Add smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Final Task 5 - SQL Views, Procedures, and Functions</h1>
+</header>
+
+<nav>
+    <a href="#task1">Task 1</a>
+    <a href="#task2">Task 2</a>
+    <a href="#task3">Task 3</a>
+    <a href="#task4">Task 4</a>
+    <a href="#task5">Task 5</a>
+</nav>
+
+<!-- Task 1 Section -->
+<section class="section" id="task1">
+    <div class="box">
+        <h2>🔹 Task 1: Create a View for Vendors</h2>
+        <p><strong>Create a view that will display the vendors_code, vendors name, product description, p_indate of all products with p_indate from 2002 onwards.</strong></p>
+        <h3>Query:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%205/Images/TASK1.PNG" alt="Task 1 Query">
+        <h3>Table:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%205/Images/TASK1TABLE.PNG" alt="Task 1 Table">
+    </div>
+</section>
+
+<!-- Task 2 Section -->
+<section class="section" id="task2">
+    <div class="box">
+        <h2>🔹 Task 2: Create a View for Price Range</h2>
+        <p><strong>Create a view that will display all products whose price range is between 100-150.</strong></p>
+        <h3>Query:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%205/Images/TASK2.PNG" alt="Task 2 Query">
+        <h3>Table:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%205/Images/TASK2TABLE.PNG" alt="Task 2 Table">
+    </div>
+</section>
+
+<!-- Task 3 Section -->
+<section class="section" id="task3">
+    <div class="box">
+        <h2>🔹 Task 3: Create a View for Total Price</h2>
+        <p><strong>Create a view that will compute for the total_price of all products by getting the P_ONHAND x P_PRICE sold by vendors with v_code (21344, 23119, 24288).</strong></p>
+        <h3>Query:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%205/Images/TASK3.PNG" alt="Task 3 Query">
+        <h3>Table:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%205/Images/TASK3TABLE.PNG" alt="Task 3 Table">
+    </div>
+</section>
+
+<!-- Task 4 Section -->
+<section class="section" id="task4">
+    <div class="box">
+        <h2>🔹 Task 4: Create a Stored Procedure to Update Vendor Name</h2>
+        <p><strong>Create a stored procedure that will take a single parameter and update the name of Vendor 'Bryson, Inc.' to 'Bryson and Co'.</strong></p>
+        <h3>Query:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%205/Images/TASK4.PNG" alt="Task 4 Query">
+        <h3>Table:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%205/Images/TASK4TABLE.PNG" alt="Task 4 Table">
+    </div>
+</section>
+
+<!-- Task 5 Section -->
+<section class="section" id="task5">
+    <div class="box">
+        <h2>🔹 Task 5: Create a Function to Display Products Based on Vendor Code and State</h2>
+        <p><strong>Create a function that will take 2 parameters (v_code and v_state) and display all the product descriptions and prices based on the parameters passed to the function.</strong></p>
+        <h3>Query:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%205/Images/TASK5.PNG" alt="Task 5 Query">
+        <h3>Table:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%205/Images/TASK5TABLE.PNG" alt="Task 5 Table">
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 John Paul A. Recapor. All rights reserved.</p>
+    <a href="https://github.com/jrecapor/EDM-John-Paul/tree/main/Final%20Task%205" target="_blank" style="color: #00bcd4;">View Finals Lab Task 5 on GitHub</a>
+</footer>
+
+</body>
+</html>
